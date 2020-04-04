@@ -11,4 +11,10 @@ class Part extends Model
       'name',
       'link'
     ];
+
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('name', 'like', '%'.$query.'%');
+    }
 }
