@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Part extends Model
 {
-    //
+    protected $fillable = [
+      'quantity',
+      'name',
+      'link'
+    ];
 }
