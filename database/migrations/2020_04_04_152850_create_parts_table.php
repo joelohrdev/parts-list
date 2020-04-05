@@ -17,7 +17,7 @@ class CreatePartsTable extends Migration
             $table->id();
             $table->integer('quantity');
             $table->string('name');
-            $table->text('link');
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }
