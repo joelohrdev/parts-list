@@ -18,7 +18,7 @@ class PartsTable extends Component
     public function render()
     {
         return view('livewire.parts-table', [
-            'parts' => Part::search($this->search)->paginate($this->perPage),
+            'parts' => Part::search($this->search)->orderBy('name')->paginate($this->perPage),
         ]);
     }
 

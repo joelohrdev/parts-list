@@ -48,7 +48,11 @@
             </div>
         </nav>
 
-        <livewire:parts-table>
+        @auth()
+            <livewire:parts-table>
+        @else
+            @yield('content')
+        @endauth
     </div>
     @livewireScripts
 </body>

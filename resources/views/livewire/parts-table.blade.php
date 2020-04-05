@@ -50,7 +50,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 flex justify-end">
                         <a href="{{ $part->link }}" class="flex-shrink-0 mr-5 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" target="_blank">Buy More</a>
-                        <a wire:click="edit({{ $part->id }})" class="flex-shrink-0 mx-1 bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-sm border-4 text-white py-1 px-2 rounded">Edit</a>
+                        <a wire:click="edit({{ $part->id }})" class="flex-shrink-0 mx-1 bg-orange-500 hover:bg-orange-700 border-orange-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded">Edit</a>
                         <a wire:click="destroy({{ $part->id }})" class="flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded">Delete</a>
                     </td>
                 </tr>
