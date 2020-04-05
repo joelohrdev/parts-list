@@ -6,47 +6,58 @@
         @include('livewire.create')
     @endif
 
-    <div class="row mb-5">
-        <div class="col form-inline">
-            Per Page: &nbsp;
-            <select wire:model="perPage" class="form-control">
+    <div class="container mx-auto grid grid-cols-3 bg-white px-8 py-6 rounded-lg shadow-lg mt-5">
+        <div class="col-span-1">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                Per Page:
+            </label>
+            <select wire:model="perPage" class="appearance-none w-full bg-gray-200 border text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 <option>10</option>
                 <option>20</option>
                 <option>25</option>
                 <option>50</option>
             </select>
         </div>
-        <div class="col">
-            <input type="text" wire:model="search" placeholder="Search Parts..." class="form-control">
+        <div class="col-span-1">
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-                New Part
-            </button>
+        <div class="col-span-1 self-end">
+            <input type="text" wire:model="search" placeholder="Search Parts..." class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white">
         </div>
-    </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
+
+        <table class="col-span-3 min-w-full my-10">
+            <thead>
+            <tr>
+                <th
+                    class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-teal-500 uppercase tracking-wider">
+                    Name
+                </th>
+                <th
+                    class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-teal-500 uppercase tracking-wider">
+                    Quantity
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody class="bg-white">
             @foreach($parts as $part)
                 <tr>
-                    <td>{{ $part->name }}</td>
-                    <td>{{ $part->quantity }}</td>
-                    <td>
-                        <a href="{{ $part->link }}" class="btn btn-outline-primary btn-sm" target="_blank">Buy More</a>
-                        <a wire:click="edit({{ $part->id }})" class="btn btn-outline-secondary btn-sm">Edit</a>
-                        <a wire:click="destroy({{ $part->id }})" class="btn btn-outline-danger btn-sm">Delete</a>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        <div class="text-sm leading-5 text-gray-900">{{ $part->name }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        <div class="text-sm leading-5 text-gray-900">{{ $part->quantity }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 justify-end">
+                        <a href="{{ $part->link }}" class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" target="_blank">Buy More</a>
+                        <a wire:click="edit({{ $part->id }})" class="flex-shrink-0 bg-purple-500 hover:bg-purple-700 border-purple-500 hover:border-purple-700 text-sm border-4 text-white py-1 px-2 rounded">Edit</a>
+                        <a wire:click="destroy({{ $part->id }})" class="flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-2 rounded">Delete</a>
                     </td>
                 </tr>
             @endforeach
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
     {{ $parts->links() }}
 
 </div>
